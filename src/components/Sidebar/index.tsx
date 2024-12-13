@@ -7,7 +7,6 @@ import { Button } from "../Form/Button"
 import * as Collpasible from "@radix-ui/react-collapsible"
 import * as Accordion from "@radix-ui/react-accordion"
 import { MenuItem } from './MenuItem'
-import { twMerge } from "tailwind-merge"
 import { useNavigate } from "react-router-dom"
 
 export function Sidebar() {
@@ -43,18 +42,19 @@ export function Sidebar() {
                         collapsible
                     >
                         <MenuItem title="Home" icon={Home} value='item-1' link='/' />
-                        <MenuItem title="CCM" icon={MailOpen} value='item-2'>
+                        {/* <MenuItem title="CCM" icon={MailOpen} value='item-2'>
                             <Accordion.Content className={twMerge(
                                 'cursor-pointer font-medium text-zinc-700 hover:text-violet-500 hover:bg-violet-50 py-2 pl-12',
                                 'dark:text-zinc-100 dark:hover:text-violet-500'
                             )}>
                                 <a onClick={() => navigate('/template')}>Template</a>
                             </Accordion.Content>
-                        </MenuItem>
+                        </MenuItem> */}
+                        <MenuItem title="CCM" icon={MailOpen} value='item-2' link='ccm' />
                         <MenuItem title="Saúde" icon={Stethoscope} value='item-3' link='saude' />
-                        <MenuItem title="Odonto" icon={Slice} value='item-4' />
-                        <MenuItem title="Vida" icon={Cross} value='item-5' />
-                        <MenuItem title="Previdência" icon={DollarSign} value='item-6' />
+                        <MenuItem title="Odonto" icon={Slice} value='item-4' link='odonto' />
+                        <MenuItem title="Vida" icon={Cross} value='item-5' link='vida' />
+                        <MenuItem title="Previdência" icon={DollarSign} value='item-6' link='prev' />
                     </Accordion.Root>
                 </nav>
 

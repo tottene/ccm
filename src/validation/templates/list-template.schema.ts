@@ -1,10 +1,11 @@
-import { InferType, number, object, string } from 'yup';
+import { boolean, InferType, number, object, string } from 'yup';
 
 export const templateListSchema = object({
     id: string(),
     sasJourneyCode: string(),
     htmlTemplateName: string(),
-    supplierName: string()
+    supplierName: string(),
+    active: boolean()
 })
 
 export const templateListFilterSchema = object({

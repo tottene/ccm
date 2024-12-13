@@ -10,7 +10,7 @@ export function AppLayout() {
                     <h1 className='text-sas-blue text-4xl font-semibold'>CCM Center</h1>
                     <div className="h-px w-full bg-zinc-200 dark:bg-zinc-700"></div>
                 </header>
-                <main className='flex-1 flex flex-col items-center justify-start'>
+                <main className='flex-1 p-8'>
                     <Outlet />
                 </main>
             </div>

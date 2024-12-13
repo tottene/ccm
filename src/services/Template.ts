@@ -1,7 +1,7 @@
 import { AxiosError, AxiosResponse } from 'axios'
 import { QueryObserverOptions, useMutation, useQuery, useQueryClient } from 'react-query'
 import { TemplateType } from '../validation/templates/create-template.schema'
-import { TemplateListFilterType } from '../validation/templates/list-template.schema'
+import { TemplateListFilterType, TemplateListType } from '../validation/templates/list-template.schema'
 
 import api from './api';
 
@@ -29,14 +29,36 @@ export function useTemplate() {
         })
     }
 
-    const getTemplateList = (filter: TemplateListFilterType, options?: QueryObserverOptions<TemplateType[], AxiosError>) => {
-        return useQuery<TemplateType[], AxiosError>({
+    const getTemplateList = (filter: TemplateListFilterType, options?: QueryObserverOptions<TemplateListType[], AxiosError>) => {
+        return useQuery<TemplateListType[], AxiosError>({
             queryKey: ['get-template-list', {filter}],
             queryFn: async () => {
 
-                const { data } = await api.get('/templates', { params: filter });
+                // const { data } = await api.get('/templates', { params: filter });
 
-                return data.content
+                return [
+                    {
+                        id: '1',
+                        sasJourneyCode: '123456',
+                        htmlTemplateName: 't.html',
+                        supplierName: 'SAS',
+                        active: true
+                    },
+                    {
+                        id: '2',
+                        sasJourneyCode: '654321',
+                        htmlTemplateName: 'z.html',
+                        supplierName: 'SAS',
+                        active: false
+                    },
+                    {
+                        id: '3',
+                        sasJourneyCode: '555555',
+                        htmlTemplateName: 'y.html',
+                        supplierName: 'SAS',
+                        active: false
+                    }
+                ]
             },
             refetchOnWindowFocus: false,
             ...options
