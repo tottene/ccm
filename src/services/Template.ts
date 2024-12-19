@@ -18,10 +18,77 @@ export function useTemplate() {
     const getTemplate = (id?: string, options?: QueryObserverOptions<TemplateType | undefined, AxiosError>) => {
         return useQuery<TemplateType | undefined, AxiosError>(['get-templates', {id}], async () => {
             if (!id) return undefined;
+            
+            const templates = [
+                {
+                    id: '1',
+                    sasJourneyCode: '123456',
+                    supplierJourneyCode: '123456',
+                    journeyName: 'Jornada 1',
+                    htmlTemplateName: 't.html',
+                    variables: '',
+                    recipientName: 'SulAmérica',
+                    recipientEmail: 'grp-sousulamerica@sulamerica.com.br',
+                    supplierName: 'sas',
+                    bu: 'saude',
+                    origin: 'VPP',
+                    eventName: 'Consenso',
+                    eventType: 'ondemand',
+                    callbackUrl: undefined,
+                    callbackAuthorization: undefined,
+                    stamp: false,
+                    active: true,
+                    whatsapp: false,
+                    printed: false
+                },
+                {
+                    id: '2',
+                    sasJourneyCode: '654321',
+                    supplierJourneyCode: '654321',
+                    journeyName: 'Jornada 2',
+                    htmlTemplateName: 't2.html',
+                    variables: '',
+                    recipientName: 'SulAmérica',
+                    recipientEmail: 'grp-sousulamerica@sulamerica.com.br',
+                    supplierName: 'sas',
+                    bu: 'saude',
+                    origin: 'VPP',
+                    eventName: 'Consenso',
+                    eventType: 'ondemand',
+                    callbackUrl: undefined,
+                    callbackAuthorization: undefined,
+                    stamp: false,
+                    active: true,
+                    whatsapp: false,
+                    printed: false
+                },
+                {
+                    id: '3',
+                    sasJourneyCode: '555555',
+                    supplierJourneyCode: '555555',
+                    journeyName: 'Jornada 3',
+                    htmlTemplateName: 't3.html',
+                    variables: '',
+                    recipientName: 'SulAmérica',
+                    recipientEmail: 'grp-sousulamerica@sulamerica.com.br',
+                    supplierName: 'sas',
+                    bu: 'saude',
+                    origin: 'VPP',
+                    eventName: 'Consenso',
+                    eventType: 'ondemand',
+                    callbackUrl: undefined,
+                    callbackAuthorization: undefined,
+                    stamp: false,
+                    active: true,
+                    whatsapp: false,
+                    printed: false
+                }
+            ]
+            const data = templates.find(t => t.id === id)
 
-            const { data } = await api.get(`/templates/id/${id}`);
+            // const { data } = await api.get(`/templates/id/${id}`);
 
-            return data;
+            return data
         }, {
             enabled: !!id,
             refetchOnWindowFocus: false,

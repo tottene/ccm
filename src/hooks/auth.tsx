@@ -37,7 +37,7 @@ const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
             localStorage.setItem('@ccm-center:user', JSON.stringify({ 
                 name: user.name, 
                 email: user.email,
-                username: user.username
+                avatar: user.avatar
             }));
             setData({ user });
         }

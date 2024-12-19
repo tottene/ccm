@@ -22,6 +22,7 @@ export const router = createBrowserRouter([
             { path: "/ccm", element: <Ccm /> },
             { path: "/ccm/templates", element: <Templates /> },
             { path: "/ccm/templates/new", element: <Template /> },
+            { path: "/ccm/templates/:id", element: <Template /> },
             { path: "/odonto", element: <Odonto /> },
             { path: "/prev", element: <Prev /> },
             { path: "/saude", element: <Saude /> },

@@ -85,7 +85,7 @@ export function Templates() {
                                                     <Button
                                                         variant='ghost'
                                                         size="sm"
-                                                        onClick={() => alert(template.id)}
+                                                        onClick={() => navigate(`/ccm/templates/${template.id}`)}
                                                     >
                                                         <Pencil className="h-3 w-3" />
                                                     </Button>

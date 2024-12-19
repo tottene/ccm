@@ -20,13 +20,15 @@ export function MenuItem({ children, title, value, link, icon: Icon }: NavItemPr
             <Accordion.Trigger className={twMerge(
                 'group flex items-center gap-3 rounded px-3 py-2 hover:bg-violet-50 data-[state=open]:bg-zinc-200',
                 'dark:hover:bg-zinc-800 w-full'
-            )}>
+            )}
+                onClick={() => navigate(`/${link}`)}
+            >
                 <Icon className="h5 w-5 text-zinc-500" />
                 <span className={twMerge(
                     'font-medium text-zinc-700 group-hover:text-violet-500',
                     'dark:text-zinc-100 dark:group-hover:text-violet-500',
                 )}>
-                    {link ? (<a onClick={() => navigate(`/${link}`)}>{title}</a>) : title}
+                    {title}
                 </span>
             </Accordion.Trigger>
             {children}
